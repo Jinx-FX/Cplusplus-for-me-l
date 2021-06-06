@@ -25,14 +25,14 @@ class Person
 {
 protected:
     int age;
-    char name[20];
+    char name[20];                                //不要设为const
 public:
     Person(const char *nam,int ages)
     {
         unsigned int i;
         for(i=0;i<strlen(nam);i++)
             name[i]=nam[i];
-        name[i]='\0';
+        name[i]='\0';                             //这里，在最后加上'\0',使之成为字符串数组，其实这里更简单一点可以将 name设为string
         age=ages;
         cout<<"Person::Person"<<endl;
     }
