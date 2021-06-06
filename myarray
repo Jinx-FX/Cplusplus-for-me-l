@@ -1,4 +1,5 @@
 //设计一个通用数组类模板
+/*
 int main()
 {
 int n;
@@ -32,3 +33,68 @@ return 0;
 分配5个数组元素
 1 2 3 4 5
 释放数组
+/*
+
+//答案如下：
+#include <iostream>
+using namespace std;
+template<class T>
+class Array
+{
+    int SIZE;
+    T* arr;
+public:
+    Array(int n)
+    {
+        SIZE = n;
+        arr = new T[SIZE];
+    }
+    T& operator[](int n){return arr[n];}
+    template<class U>
+    friend void mysort(Array<U>&,int);
+    ~Array()
+    {
+        delete [] arr;
+        cout<<"释放数组";
+    }
+};
+
+template<class U>
+void mysort(Array<U> &a,int n)
+{
+    int k;
+    U t;
+    for(int i=0;i<n-1;i++)
+    {
+        k=i;
+        for(int j=i+1;j<n;j++)
+        {
+            if(a[k]>a[j])
+                k=j;
+        }
+        if(k!=i)
+        {
+            t=a[i];
+            a[i]=a[k];
+            a[k]=t;
+        }
+    }
+    cout<<"分配"<<n<<"个数组元素"<<endl;
+}
+int main()
+{
+    int n;
+    cin >> n;
+    Array<int> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    mysort(a, n); // 排序
+    for (int i = 0; i < n; i++)
+    {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
