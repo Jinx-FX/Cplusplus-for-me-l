@@ -20,7 +20,7 @@ public:
     mystring(string &s) { val = s; } 
     mystring operator-=(char c) 
     { 
-        val.erase(remove(val.begin(), val.end(), c), val.end());   //删除val中的相应元素，更详细的解释见下一个commit
+        val.erase(remove(val.begin(), val.end(), c), val.end());   //删除val中的相应元素，更详细的解释见下一个 stl .remove.cpp
         /* int n = val.length(); 
         for (int i = n - 1; i >= 0; i--) 
         { if (val[i] == c) 
