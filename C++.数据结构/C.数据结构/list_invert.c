@@ -8,7 +8,7 @@ typedef struct node
     struct node * next;
 }List;
 
-/* 这两个函数用于将链表的数据倒置
+/* 这两个函数用于将链表的数据倒置*/
 void invert_1(List *head,int size); //成功
 List * invert_2(List *head);        //成功
 
