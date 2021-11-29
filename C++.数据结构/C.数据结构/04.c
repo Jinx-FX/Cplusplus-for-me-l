@@ -1,3 +1,4 @@
+/* 文件读取与赫夫曼树 */
 #include<stdio.h>
 #include<stdlib.h>
 
